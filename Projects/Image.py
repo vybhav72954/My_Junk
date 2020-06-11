@@ -30,3 +30,32 @@ def get_three_classes(x, y):
     y = tf.keras.utils.to_categorical(y)
     
     return x, y
+
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
+x_train, y_train = get_three_classes(x_train, y_train)
+x_test, y_test = get_three_classes(x_test, y_test)
+
+print(x_train.shape, y_train.shape)
+print(x_test.shape, y_test.shape)
+
+class_names = ['aeroplane', 'car', 'bird']
+
+def show_random_examples(x, y, p):
+    indices = np.random.choice(range(x.shape[0]), 10, replace=False)
+
+    x = x[indices]
+    y = y[indices]
+    p = p[indices]
+    
+    plt.figure(figsize=(10, 5))
+    for i in range(10):
+        plt.subplot(2, 5, 1+i)
+        plt.imshow(x[i])
+        plt.xticks([])
+        plt.yticks([])
+        col = 'green' if np.argmax(y[i]) == np.argmax(p[i]) else 'red'
+        plt.xlabel(class_names[np.argmax(p[i])], color=col)
+    plt.show()
+    
+show_random_examples(x_train, y_train, y_train)
+show_random_examples(x_test, y_test, y_test)
