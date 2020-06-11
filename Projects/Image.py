@@ -93,3 +93,30 @@ def create_model():
     return model
 model = create_model()
 model.summary()
+
+
+h = model.fit(
+    x_train/255., y_train,
+    validation_data=(x_test/255., y_test),
+    epochs=10, batch_size=128,
+    callbacks = [
+        tf.keras.callbacks.EarlyStopping(monitor='val_accuracy', patience=3),
+        tf.keras.callbacks.ModelCheckpoint(
+            'models/model_{val_accuracy:.3f}.h5',
+            save_best_only=True, save_weights_only=False,
+            monitor='val_accuracy'
+        )
+        
+     ]
+)    
+
+accs = h.history['accuracy']
+val_accs = h.history['val_accuracy']
+
+plt.plot(range(len(accs)), accs, label = 'Training')
+plt.plot(range(len(accs)), val_accs, label = 'Validation')
+plt.legend()
+plt.show()
+model = tf.keras.models.load_model('models/model_0.889.h5')
+preds  = model.predict(x_test/255.)
+show_random_examples(x_test, y_test, preds)
