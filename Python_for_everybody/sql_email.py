@@ -17,7 +17,7 @@ for line in fh:
     org1 = pieces[1]
     domain = org1.split("@")
     org = domain[1]
-    #re.findall(r'(?<=.\@).*', org)
+    # re.findall(r'(?<=.\@).*', org)
     cur.execute('SELECT count FROM Counts WHERE org = ? ', (org,))
     row = cur.fetchone()
     if row is None:
