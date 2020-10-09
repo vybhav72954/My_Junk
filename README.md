@@ -4,10 +4,10 @@ These are just some unrelated scripts which i believe aare awesome but not usefu
 
 Do let me know by contributing. **How?**
 
-Open a PR.
+- Open a PR.
 
-Fork the Repo.
+- Fork the Repo.
 
-Edit the [AWESOME.md](AWESOME.md)
+- Edit [AWESOME.md](AWESOME.md)
 
-*Dont forget to update the counter*
+>*Dont forget to update the counter*
