@@ -94,12 +94,12 @@ if __name__ == '__main__':
         print("Do you want to delete the Duplicate Images (If Any)? Press [y] for Yes.")
         while True:
             if keyboard.read_key() == "y":
-                print("Deleting Duplicate Files")
+                print("Deleting Duplicate Files\n")
                 delete_duplicate(duplicate)
-                print("Thank You")
+                print("Thank You\n")
                 break
             else:
-                print("Nothing Deleted!!! Thank You")
+                print("Nothing Deleted!!! Thank You\n")
                 break
     else:
         print("Use Command Line Interface")
