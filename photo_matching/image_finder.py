@@ -1,6 +1,6 @@
-# dupFinder.py
-import os, sys
 import hashlib
+import os
+import sys
 
 
 def findDup(parentFolder):
@@ -70,4 +70,4 @@ if __name__ == '__main__':
                 sys.exit()
         printResults(dups)
     else:
-        print('Usage: python dupFinder.py folder or python dupFinder.py folder1 folder2 folder3')
+        print('Hint: python image_finder.py <path of folders>')
