@@ -1,7 +1,11 @@
 # Duplicate Image Finder
 
 Many a times, we find duplicate images residing in our Albums, Image_directory etc, there ane various reasons, 
-downloading same file form various sources, auto  backup on cloud, it slipped out of our mind that we downloaded it already in the first place etc. Manually selecting them is actually a hassle, but why do such boring task when automation can do the trick. This sweet and simple script, helps you to compare various files (not only images) in a directory, find the duplicate, list them out, and then even allows you to delete them. Sweet!!!
+downloading same file form various sources, auto  backup on cloud, it slipped out of our mind that we downloaded it 
+already in the first place etc. Manually selecting them is actually a hassle, but why do such boring task when 
+automation can do the trick. This sweet and simple script, helps you to compare various files (not only images) in a 
+directory, find the duplicate, list them out, and then even allows you to delete them. 
+**Sweet!!!**
 
 ## Setup
 
@@ -28,8 +32,18 @@ In Command Line Interface, Run the script using -
 
 ## Detailed explanation
 
-The Script works on a simple fundamental. Two files with same [`md5checksum`](https://en.wikipedia.org/wiki/MD5) will have similar contents. So in the script all we aim to do is determine the checksum, compare and find the duplicates.
+The Script works on a simple fundamental. Two files with same [`md5checksum`](https://en.wikipedia.org/wiki/MD5) will 
+have similar contents. So in the script all we aim to do is determine the checksum, compare and find the duplicates.
 
+#### Folder Structure
+
+- **[Stand_Alone](./Stand_Alone)** folder has 6 images, 2 of them are duplicate of images within the folder only.
+- **[Parent](./Parent)** contains standard images used for Image Processing in *png* format.
+- **[Duplicate](./Duplicate)** folder contains 5 images duplicate of images in Stand_Alone (named `Random Name (n)`).
+There are similar images in *tiff* extension as well, They are not Duplicate as file type is different.
+- **[Duplicate_1](./Duplicate_1)** folder contains another 5 images duplicate of images in Stand_Alone 
+(named `Another Random Name (n)`). There are similar images in *jpeg* extension as well, They are not Duplicate as file 
+type is different.
 
 ## Output
 
