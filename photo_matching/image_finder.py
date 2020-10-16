@@ -3,10 +3,14 @@ import os
 import sys
 
 
-def findDup(parentFolder):
-    # Dups in format {hash:[names]}
-    dups = {}
-    for dirName, subdirs, fileList in os.walk(parentFolder):
+def image_finder(parent_folder):
+    # A dictionary to store Hash of Images corresponding to names
+    """
+    Sample -
+    {hash:[names]}
+    """
+    duplicate_img = {}
+    for dirName, subdirs, fileList in os.walk(parent_folder):
         print('Scanning %s...' % dirName)
         for filename in fileList:
             # Get the path to the file
@@ -14,15 +18,15 @@ def findDup(parentFolder):
             # Calculate hash
             file_hash = hashfile(path)
             # Add or append the file path
-            if file_hash in dups:
-                dups[file_hash].append(path)
+            if file_hash in duplicate_img:
+                duplicate_img[file_hash].append(path)
             else:
-                dups[file_hash] = [path]
-    return dups
+                duplicate_img[file_hash] = [path]
+    return duplicate_img
 
 
 # Joins two dictionaries
-def joinDicts(dict1, dict2):
+def join_dicts(dict1, dict2):
     for key in dict2.keys():
         if key in dict1:
             dict1[key] = dict1[key] + dict2[key]
@@ -31,17 +35,17 @@ def joinDicts(dict1, dict2):
 
 
 def hashfile(path, blocksize=65536):
-    afile = open(path, 'rb')
+    img_file = open(path, 'rb')
     hasher = hashlib.md5()
-    buf = afile.read(blocksize)
+    buf = img_file.read(blocksize)
     while len(buf) > 0:
         hasher.update(buf)
-        buf = afile.read(blocksize)
-    afile.close()
+        buf = img_file.read(blocksize)
+    img_file.close()
     return hasher.hexdigest()
 
 
-def printResults(dict1):
+def print_results(dict1):
     results = list(filter(lambda x: len(x) > 1, dict1.values()))
     if len(results) > 0:
         print('Duplicates Found:')
@@ -58,16 +62,16 @@ def printResults(dict1):
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        dups = {}
+        duplicate = {}
         folders = sys.argv[1:]
         for i in folders:
             # Iterate the folders given
             if os.path.exists(i):
-                # Find the duplicated files and append them to the dups
-                joinDicts(dups, findDup(i))
+                # Find the duplicated files and append them to the dictionary
+                join_dicts(duplicate, image_finder(i))
             else:
                 print('%s is not a valid path, please verify' % i)
                 sys.exit()
-        printResults(dups)
+        print_results(duplicate)
     else:
         print('Hint: python image_finder.py <path of folders>')
