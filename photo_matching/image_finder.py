@@ -1,3 +1,4 @@
+# Imports
 import hashlib
 import os
 import sys
@@ -45,6 +46,7 @@ def join_dicts(dict1, dict2):
 
 
 # For finding Hash of various Files
+# If 2 files have the same md5checksum,they most likely have the same content
 def hash_file(path, blocksize=65536):
     img_file = open(path, 'rb')
     hasher = hashlib.md5()
@@ -53,6 +55,7 @@ def hash_file(path, blocksize=65536):
         hasher.update(buf)
         buf = img_file.read(blocksize)
     img_file.close()
+    # Return Hex MD5
     return hasher.hexdigest()
 
 
@@ -85,6 +88,8 @@ if __name__ == '__main__':
                 print('%s is not a valid path, please verify' % i)
                 sys.exit()
         print_results(duplicate)
+        # Delete Duplicate Images
+        # Comment if not required
         print("Deleting Duplicate Images")
         delete_duplicate(duplicate)
 
@@ -92,3 +97,15 @@ if __name__ == '__main__':
         print("Use Command Line Interface")
         print("Hint: python image_finder.py <path of folders>")
         print("Please Read comments for greater detailing")
+        '''
+        Suggestions :------ 
+        Usage - python image_finder.py <path of folder1, path  of folder2, .....>
+        folder1 - Parent Folder
+        folder2, folder3 .... - Subsequent Folders
+        Comparisons are done with in the folder, and from Parent to Subsequent Folders. 
+
+        No Files are deleted form Parent Folder but the files which are Duplicate to the files in Subsequent Folders are
+        deleted. Make sure that the paths are correct 
+        
+        Consider commenting LINE 89, if deletion feature is not required.
+        '''
