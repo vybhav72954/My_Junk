@@ -2,6 +2,7 @@
 import hashlib
 import os
 import sys
+import keyboard
 
 
 def image_finder(parent_folder):
@@ -90,9 +91,16 @@ if __name__ == '__main__':
         print_results(duplicate)
         # Delete Duplicate Images
         # Comment if not required
-        print("Deleting Duplicate Images")
-        delete_duplicate(duplicate)
-
+        print("Do you want to delete the Duplicate Images (If Any)? Press [y] for Yes.")
+        while True:
+            if keyboard.read_key() == "y":
+                print("Deleting Duplicate Files")
+                delete_duplicate(duplicate)
+                print("Thank You")
+                break
+            else:
+                print("Nothing Deleted!!! Thank You")
+                break
     else:
         print("Use Command Line Interface")
         print("Hint: python image_finder.py <path of folders>")
@@ -107,5 +115,5 @@ if __name__ == '__main__':
         No Files are deleted form Parent Folder but the files which are Duplicate to the files in Subsequent Folders are
         deleted. Make sure that the paths are correct 
         
-        Consider commenting LINE 89, if deletion feature is not required.
+        Be careful during Keyboard Input.
         '''
