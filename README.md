@@ -9,5 +9,3 @@ Do let me know by contributing. **How?**
 - Fork the Repo.
 
 - Edit [AWESOME.md](AWESOME.md)
-
->*Dont forget to update the counter*
