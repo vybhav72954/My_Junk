@@ -2,7 +2,9 @@
   
 A lot of times, a remote host, gets bound to a port and starts running a process on it. This is not only undesirable but also can be dangerous.
 I made a set of two scripts, in order to solve the mess. One to check the currently active ports, another one to kill the process running on them.
-  
+
+The Script uses `psutil` module to solve the purpose, unarguably the `lsof` package provided in Linux is way better.
+But as it is not cross platform, I have hardcoded using `psutil`.
 ## Setup instructions  
   
 There are 2 scripts.  
@@ -17,18 +19,16 @@ There are 2 scripts.
   
 Sample Outputs -   
   
-- ports_scan.py.py  
+- **ports_scan.py** 
   
-![Result](img/cipher.PNG)  
+![Result](img/port.PNG)  
   
-- decipher.py  
->Enter the text to be decrypted: Rfshmjxyjw nx GQZJ  
->Enter the shift key: 5  
->Text before Decryption:  Rfshmjxyjw nx GQZJ  
->Shift Key:  5  
->Decrypted text:  Manchester is BLUE  
+- **ports_kill.py**
+
+![Result](img/kill.PNG)  
+
   
-![Result](img/decipher.PNG)  
+![Result](img/result.PNG)  
   
 ## Author(s)  
   
