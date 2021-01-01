@@ -1,0 +1,11 @@
+Pre-Processing of Dataset
+
+Downscale all the files to the required sample rate.
+
+Convert them in wav files.
+
+Change the stereo channel to mono channel.
+
+Set Window Size to 3msec and step size to 0.625 msec in order to calculate
+various transforms on the files.
+

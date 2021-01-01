@@ -1,0 +1,6 @@
+Determine the FFT, STFT, and DCT.
+Perform Hann Smoothing and Adam Optimization to reduce the gradient noise.
+Perform Audio Frequency Plotting using LikROQSA,
+
+Save the array and graph.
+
