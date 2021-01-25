@@ -9,7 +9,7 @@ def main():
     """
     Main function, wrapper around summary_make
     """
-    filepath = input("please input text's filepath->")
+    filepath = input("Enter the Source File: ")
     with open(filepath, encoding='utf-8') as f:
         sentences = f.readlines()
     sentences = ' '.join(sentences)
