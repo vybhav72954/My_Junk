@@ -64,3 +64,8 @@ With the increasing number of DDOS attacks, multiple hosts have started using th
 request transfer and communication, multiple of the supported platforms in future, might shift to APIs. (e.g. LinkedIN)
 
 We recommend people to use APIs as they are the official means of communication, and follow the rules and guidelines.
+
+### TODO
+
+- Use PickleDB/JSON
+- Error for Twitter
