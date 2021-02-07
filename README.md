@@ -1,7 +1,7 @@
 # My_Junk
 
-These are just some unrelated scripts which I believe are awesome but not useful (at least for me) right now. Still,
-hang around, **YOU MIGHT FIND SOMETHING COOL**
+These are just some unrelated scripts that I believe are awesome but not useful enough (at least according to me)
+as stand-out projects. Still, hang around, **You might as well find something Awesome.**
 
 Do let me know by contributing. **How?**
 
