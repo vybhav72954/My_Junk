@@ -163,7 +163,6 @@ cython_debug/
 # Project Specefic
 ../.idea/**/
 .idea/.*
-.*
 !/.gitignore
 
 # Sensitive or high-churn files
