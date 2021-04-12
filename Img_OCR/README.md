@@ -4,6 +4,8 @@
 
 Text extraction form Images, OCR, Tesseract, Basic Image manipulation are all important yet very basic scripts.
 
+
+
 If you have a folder full of images that has some text which needs to be extracted into a separate folder with the corresponding image file name or in a single file, then this is the perfect code you are looking for.
 
 The code is relatively simple, full of comments and long variable names XD.
