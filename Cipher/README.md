@@ -7,6 +7,7 @@ The technique is really simple, a secret key (a number) is shared between the se
   
 For Example: Upon giving a shift key of 2, A would be replaced by C, B by D and so on.  
   
+ 
 ## Setup instructions  
   
 There are 2 scripts.  
