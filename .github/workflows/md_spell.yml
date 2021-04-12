@@ -4,8 +4,6 @@ name: Check Spellings
 # Start the job on all PR #
 ###########################
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -76,4 +74,4 @@ jobs:
         str='./'
         echo "The Following files were changed or created:"
         echo $FILES
-        do pyspelling -n Markdown -s FILES
+        for FILE in $FILES; do pyspelling -n Markdown -s FILE; done
