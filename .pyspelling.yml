@@ -10,8 +10,7 @@ matrix:
   - pyspelling.filters.markdown:
   - pyspelling.filters.html:
     comments: false
-    ignores:
-    - code
+    ignores: code
   sources:
   - '**/*.md'
   default_encoding: utf-8
