@@ -23,6 +23,15 @@ jobs:
     # Load all steps #
     ##################
     steps:
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install Requirements
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyspelling
+
 
       ##########################
       # Checkout the code base #
@@ -66,6 +75,4 @@ jobs:
         str='./'
         echo "The Following files were changed or created:"
         echo $FILES
-      uses: rojopolis/spellcheck-github-actions@master
-      with:
-        config_path: .github/linters/.spellcheck.yml
+        for FILE in $FILES; do python pyspelling; done
