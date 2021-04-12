@@ -28,11 +28,44 @@ jobs:
       # Checkout the code base #
       ##########################
     - uses: actions/checkout@master
+      with:
+        ref: ${{github.event.pull_request.head.ref}}
+        repository: ${{github.event.pull_request.head.repo.full_name}}
+
+    - name: Changed Files Exporter
+      id: files
+      uses: futuratrepadeira/changed-files@v3.2.1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        pattern: '^.*\.(md)$'
+
+    - name: Detect Files
+      uses: dorny/paths-filter@v2.6.0
+      id: filter
+      with:
+        # Enable listing of files matching each filter.
+        # Paths to files will be available in `${FILTER_NAME}_files` output variable.
+        # Paths will be escaped and space-delimited.
+        # Output is usable as command line argument list in linux shell
+        list-files: shell
+
+        # In this example changed files will be checked by linter.
+        # It doesn't make sense to lint deleted files.
+        # Therefore we specify we are only interested in added or modified files.
+        filters: |
+          python:
+            - added|modified: '**.md'
 
       ####################################
       # Run Spellcheck against code base #
       ####################################
-    - uses: rojopolis/spellcheck-github-actions@master
-      name: Check Spelling
+    - name: Check Spelling
+      env:
+        FILES: '${{ steps.files.outputs.files_updated }} ${{ steps.files.outputs.files_created }}'
+      run: |
+        str='./'
+        echo "The Following files were changed or created:"
+        echo $FILES
+      uses: rojopolis/spellcheck-github-actions@master
       with:
         config_path: .github/linters/.spellcheck.yml
