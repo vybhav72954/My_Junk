@@ -9,6 +9,4 @@ matrix:
   pipeline:
   - pyspelling.filters.html:
       comments: false
-  sources:
-  - '**/*.md'
   default_encoding: utf-8
