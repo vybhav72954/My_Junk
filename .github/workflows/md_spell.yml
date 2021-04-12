@@ -4,6 +4,8 @@ name: Check Spellings
 # Start the job on all PR #
 ###########################
 on:
+  push:
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
