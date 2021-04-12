@@ -75,4 +75,4 @@ jobs:
         str='./'
         echo "The Following files were changed or created:"
         echo $FILES
-        for FILE in $FILES; do python -m pyspelling; done
+        for FILE in $FILES; do pyspelling; done
