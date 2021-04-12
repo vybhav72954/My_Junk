@@ -11,6 +11,9 @@ There are 2 scripts.
 - [ports_scan.py](./ports_scan.py)  
 - [ports_kill.py](./ports_kill.py) 
 
+
+
+
 1. Setup a Virtual Environment.
 1. Install dependencies using `pip3 install -r requirements.txt`
 1. Go through the comments and the interactive options. 
