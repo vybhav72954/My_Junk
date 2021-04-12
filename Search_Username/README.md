@@ -6,6 +6,8 @@ This script of code, using `request` module, will  help to determine weather, a 
 
 The script uses universal libraries. Still it is recommended to cross check by using command:
 
+
+
 ```bash
 pip3 install argparse requests
 ```
