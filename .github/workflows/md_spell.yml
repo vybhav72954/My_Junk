@@ -76,4 +76,4 @@ jobs:
         str='./'
         echo "The Following files were changed or created:"
         echo $FILES
-        for FILE in $FILES; do pyspelling -n Markdown -S FILE; done
+        do pyspelling -n Markdown -s FILES
