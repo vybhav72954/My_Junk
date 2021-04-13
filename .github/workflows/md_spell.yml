@@ -70,8 +70,10 @@ jobs:
     - name: Check Spelling
       env:
         FILES: '${{ steps.files.outputs.files_updated }} ${{ steps.files.outputs.files_created }}'
-      run: |
-        str='./'
-        echo "The Following files were changed or created:"
-        echo $FILES
-        for FILE in $FILES; do pyspelling -n Markdown -s FILE; done
+
+    - uses: rojopolis/spellcheck-github-actions@0.11.0
+      name: Spellcheck
+      with:
+        config_path: .pyspelling.yml # put path to configuration file here
+        source_files: FILES
+        task_name: Markdown
